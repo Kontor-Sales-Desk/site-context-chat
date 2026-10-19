@@ -1,0 +1,8 @@
+# Both functions check access themselves: site-chat is public (your visitors), and
+# site-chat-admin needs the SITE_CHAT_ADMIN_SECRET. Supabase's own JWT check stays off
+# so the new publishable keys (sb_publishable_…) work.
+[functions.site-chat]
+verify_jwt = false
+
+[functions.site-chat-admin]
+verify_jwt = false

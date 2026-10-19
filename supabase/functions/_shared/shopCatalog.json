@@ -1,0 +1,95 @@
+{
+  "currency": "eur",
+  "skus": {
+    "nfc-business-card-single": {
+      "productId": "nfc-business-card",
+      "name": "NFC Smart Card — single",
+      "amountCents": 1990
+    },
+    "nfc-business-card-pack-3": {
+      "productId": "nfc-business-card",
+      "name": "NFC Smart Card — 3 pack",
+      "amountCents": 4770
+    },
+    "nfc-business-card-pack-5": {
+      "productId": "nfc-business-card",
+      "name": "NFC Smart Card — 5 pack",
+      "amountCents": 6950
+    },
+    "nfc-business-card-pack-10": {
+      "productId": "nfc-business-card",
+      "name": "NFC Smart Card — 10 pack",
+      "amountCents": 11900
+    },
+    "google-review-stand-single": {
+      "productId": "google-review-stand",
+      "name": "NFC Smart Stand — single",
+      "amountCents": 3790
+    },
+    "google-review-stand-pack-3": {
+      "productId": "google-review-stand",
+      "name": "NFC Smart Stand — 3 pack",
+      "amountCents": 8970
+    },
+    "google-review-stand-pack-6": {
+      "productId": "google-review-stand",
+      "name": "NFC Smart Stand — 6 pack",
+      "amountCents": 14940
+    },
+    "wifi-guest-card": {
+      "productId": "wifi-guest-card",
+      "name": "WiFi Guest Card — card only",
+      "amountCents": 1790
+    },
+    "wifi-guest-stand": {
+      "productId": "wifi-guest-card",
+      "name": "WiFi Guest Counter Stand — stand only",
+      "amountCents": 3290
+    },
+    "wifi-guest-bundle": {
+      "productId": "wifi-guest-card",
+      "name": "WiFi Guest Card + Stand — bundle",
+      "amountCents": 3990
+    },
+    "wifi-guest-bundle-5": {
+      "productId": "wifi-guest-card",
+      "name": "WiFi Guest Card + Stand — 5 bundles",
+      "amountCents": 17450
+    },
+    "nfc-smart-coaster-set-5": {
+      "productId": "nfc-smart-coaster",
+      "name": "NFC Smart Coaster — set of 5",
+      "amountCents": 3990
+    },
+    "nfc-smart-coaster-set-10": {
+      "productId": "nfc-smart-coaster",
+      "name": "NFC Smart Coaster — set of 10",
+      "amountCents": 6990
+    },
+    "nfc-smart-coaster-set-20": {
+      "productId": "nfc-smart-coaster",
+      "name": "NFC Smart Coaster — set of 20",
+      "amountCents": 11990
+    },
+    "pet-id-tag-single": {
+      "productId": "pet-id-tag",
+      "name": "NFC Smart Coin & Pet Tag — single",
+      "amountCents": 1890
+    },
+    "pet-id-tag-pack-2": {
+      "productId": "pet-id-tag",
+      "name": "NFC Smart Coin & Pet Tag — 2 pack",
+      "amountCents": 2990
+    },
+    "smart-menu-tier1": {
+      "productId": "smart-menu",
+      "name": "Smart Menu — static build (Tier 1)",
+      "amountCents": 14900
+    },
+    "smart-menu-tier2": {
+      "productId": "smart-menu",
+      "name": "Smart Menu — self-managed (Tier 2)",
+      "amountCents": 44900
+    }
+  }
+}

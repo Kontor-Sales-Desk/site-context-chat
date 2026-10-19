@@ -1,0 +1,1015 @@
+/* Sales admin — dark theme overrides for native data-theme (not browser forced-dark). */
+
+/*
+ * Dark values for the surface-system tokens (see "Surface system" in styles.css). Declared as
+ * literals on every admin container: a token computed from var(--scc-surface) higher up the
+ * tree would otherwise freeze to the light value. Tints mixed with var(--scc-surface) at the
+ * use site follow automatically.
+ */
+html.scc-sales-embed-active:not([data-theme='light']),
+html.scc-sales-desktop-active:not([data-theme='light']),
+:root:not([data-theme='light']) :is(.scc-admin, .scc-sales-panel, .scc-admin-assistant,
+  .scc-sales-workspace-layout, .scc-sales-workspace-panel, .scc-sales-settings),
+[data-theme='dark'] :is(.scc-admin, .scc-sales-panel, .scc-admin-assistant,
+  .scc-sales-workspace-layout, .scc-sales-workspace-panel, .scc-sales-settings) {
+  --scc-surface: #222325;
+  --scc-text: #e6e6e7;
+  --scc-foreground: #e6e6e7;
+  --scc-muted: #a3a3a6;
+  --scc-border: #48494c;
+  --scc-card: #161718;
+  /* Neutral "reader" greys (no slate-blue cast): panel #222325, cards a step darker,
+     things on cards back at the panel shade — same layering as light, inverted. */
+  --scc-card-bg: #1b1c1e;
+  --scc-card-bg-hover: #29292c;
+  --scc-hover-bg: #2b2c2f;
+  --scc-quiet-bg: #303134;
+  --scc-quiet-bg-hover: #3a3b3e;
+  --scc-tint-teal: #233532;
+  --scc-tint-orange: #3b3018;
+  --scc-tint-red: #3c1c1d;
+  --scc-tint-green: #183224;
+}
+
+/* Components whose light look hardcodes dark text on a (now theme-aware) tint or grey fill */
+:root:not([data-theme='light']) :is(.scc-chat-panel__email-mode-btn--active,
+  .scc-history__agent-filter .scc-btn--active, .scc-sales-badge--teal, .scc-sales-badge--orange,
+  .scc-sales-badge--success, .scc-sales-badge--sky, .scc-sales-badge--violet,
+  .scc-sales-badge--indigo, .scc-sales-badge--personal,
+  .scc-sales-filter-pill:hover, .scc-sales-filter-pill--on, .scc-sales-panel-action--quiet,
+  .scc-sales-admin-inner .scc-admin-activity__item-preview, .scc-prospects__header-compose-title,
+  .scc-admin-visitor .scc-visitor-nav__tab:hover, .scc-admin-visitor .scc-visitor-nav__tab--active,
+  .scc-admin-visitor .scc-visitor-action, .scc-admin-visitor .scc-visitor-badge--new,
+  .scc-admin-visitor .scc-admin-activity__item-preview, .scc-scheduler__play-kind--sequence,
+  .scc-scheduler__play-kind--saved, .scc-scheduler__mode-tab:not(.scc-scheduler__mode-tab--active),
+  .scc-discovery-detail__stat-value),
+[data-theme='dark'] :is(.scc-chat-panel__email-mode-btn--active,
+  .scc-history__agent-filter .scc-btn--active, .scc-sales-badge--teal, .scc-sales-badge--orange,
+  .scc-sales-badge--success, .scc-sales-badge--sky, .scc-sales-badge--violet,
+  .scc-sales-badge--indigo, .scc-sales-badge--personal,
+  .scc-sales-filter-pill:hover, .scc-sales-filter-pill--on, .scc-sales-panel-action--quiet,
+  .scc-sales-admin-inner .scc-admin-activity__item-preview, .scc-prospects__header-compose-title,
+  .scc-admin-visitor .scc-visitor-nav__tab:hover, .scc-admin-visitor .scc-visitor-nav__tab--active,
+  .scc-admin-visitor .scc-visitor-action, .scc-admin-visitor .scc-visitor-badge--new,
+  .scc-admin-visitor .scc-admin-activity__item-preview, .scc-scheduler__play-kind--sequence,
+  .scc-scheduler__play-kind--saved, .scc-scheduler__mode-tab:not(.scc-scheduler__mode-tab--active),
+  .scc-discovery-detail__stat-value) {
+  color: var(--scc-text, #e6e6e7);
+}
+
+/*
+ * Admin assistant chat — neutral greys. Scoped to the admin windows because the base
+ * .scc-panel-shell / .scc-chat-panel dark defaults are shared with the public site widget.
+ */
+:root:not([data-theme='light']) :is(.scc-admin-assistant, .scc-sales-workspace-panel, .scc-sales-assistant-float)
+  :is(.scc-panel-shell, .scc-chat-panel, .scc-chat-panel__header, .scc-chat-panel__composer,
+      .scc-chat-panel__drafts-menu, .scc-chat-panel__agent-menu),
+[data-theme='dark'] :is(.scc-admin-assistant, .scc-sales-workspace-panel, .scc-sales-assistant-float)
+  :is(.scc-panel-shell, .scc-chat-panel, .scc-chat-panel__header, .scc-chat-panel__composer,
+      .scc-chat-panel__drafts-menu, .scc-chat-panel__agent-menu) {
+  background: #222325;
+}
+
+:root:not([data-theme='light']) :is(.scc-admin-assistant, .scc-sales-workspace-panel, .scc-sales-assistant-float) .scc-chat-panel__messages,
+[data-theme='dark'] :is(.scc-admin-assistant, .scc-sales-workspace-panel, .scc-sales-assistant-float) .scc-chat-panel__messages {
+  background: transparent;
+}
+
+:root:not([data-theme='light']) :is(.scc-admin-assistant, .scc-sales-workspace-panel, .scc-sales-assistant-float)
+  :is(.scc-chat-panel__bubble--assistant, .scc-chat-panel__quick-action, .scc-chat-panel__draft-card),
+[data-theme='dark'] :is(.scc-admin-assistant, .scc-sales-workspace-panel, .scc-sales-assistant-float)
+  :is(.scc-chat-panel__bubble--assistant, .scc-chat-panel__quick-action, .scc-chat-panel__draft-card) {
+  background: #2b2c2f;
+}
+
+:root:not([data-theme='light']) :is(.scc-admin-assistant, .scc-sales-workspace-panel, .scc-sales-assistant-float) .scc-chat-panel__input,
+[data-theme='dark'] :is(.scc-admin-assistant, .scc-sales-workspace-panel, .scc-sales-assistant-float) .scc-chat-panel__input {
+  background: #1b1c1e;
+  border-color: #48494c;
+}
+
+/* Neutral / muted badges (e.g. LEAD): readable text and a dark hairline */
+:root:not([data-theme='light']) .scc-sales-badge--neutral,
+[data-theme='dark'] .scc-sales-badge--neutral {
+  color: #d4d4d6;
+  box-shadow: inset 0 0 0 1px var(--scc-border, #4a4b4e);
+}
+
+/* Outreach "Sequence" badge stays solid teal + white in dark too. */
+:root:not([data-theme='light']) .scc-sales-badge.scc-scheduler__sequence-badge,
+[data-theme='dark'] .scc-sales-badge.scc-scheduler__sequence-badge {
+  color: #fff;
+  box-shadow: none;
+}
+
+/* Outreach "New sequence" (washed orange): lighter orange text on the dark tint. */
+:root:not([data-theme='light']) .scc-scheduler__schedule-btn.scc-scheduler__schedule-btn--orange,
+[data-theme='dark'] .scc-scheduler__schedule-btn.scc-scheduler__schedule-btn--orange,
+:root:not([data-theme='light']) .scc-scheduler__schedule-btn.scc-scheduler__schedule-btn--orange:hover:not(:disabled),
+[data-theme='dark'] .scc-scheduler__schedule-btn.scc-scheduler__schedule-btn--orange:hover:not(:disabled) {
+  color: #f5b94a;
+}
+
+/* Outreach WhatsApp one-shot template status: brighter so it reads on dark cards. */
+:root:not([data-theme='light']) .scc-scheduler__template-card-channel.scc-scheduler__wa-template--ok,
+[data-theme='dark'] .scc-scheduler__template-card-channel.scc-scheduler__wa-template--ok {
+  color: #4ade80;
+}
+
+:root:not([data-theme='light']) .scc-scheduler__template-card-channel.scc-scheduler__wa-template--missing,
+[data-theme='dark'] .scc-scheduler__template-card-channel.scc-scheduler__wa-template--missing {
+  color: #fbbf24;
+}
+
+/* Email / Web deep teal (#0f766e) is too dim on dark cards → brighter teal. */
+:root:not([data-theme='light']) .scc-flow__card--email,
+[data-theme='dark'] .scc-flow__card--email {
+  --flow-ch: #2dd4bf;
+}
+
+:root:not([data-theme='light']) .scc-run-form__source-check:not(.scc-run-form__source-check--map):not(.scc-run-form__source-check--linkedin),
+[data-theme='dark'] .scc-run-form__source-check:not(.scc-run-form__source-check--map):not(.scc-run-form__source-check--linkedin) {
+  --source-color: #2dd4bf;
+}
+
+:root:not([data-theme='light']) .scc-scheduler__run-badge--channel.scc-scheduler__run-badge--email,
+[data-theme='dark'] .scc-scheduler__run-badge--channel.scc-scheduler__run-badge--email {
+  color: #2dd4bf;
+}
+
+:root:not([data-theme='light']) .scc-li-ext-notice--warn,
+[data-theme='dark'] .scc-li-ext-notice--warn {
+  color: #fbbf24;
+}
+
+:root:not([data-theme='light']) .scc-flow__card-wa-template--ok,
+[data-theme='dark'] .scc-flow__card-wa-template--ok {
+  color: #4ade80;
+}
+
+:root:not([data-theme='light']) .scc-flow__card-wa-template--missing,
+[data-theme='dark'] .scc-flow__card-wa-template--missing {
+  color: #f87171;
+}
+
+:root:not([data-theme='light']) .scc-sales-badge--muted,
+[data-theme='dark'] .scc-sales-badge--muted {
+  color: #a3a3a6;
+  box-shadow: inset 0 0 0 1px var(--scc-border, #4a4b4e);
+}
+
+/* Auto selected stays white on solid orange */
+:root:not([data-theme='light']) .scc-chat-panel__email-mode-btn--auto.scc-chat-panel__email-mode-btn--active,
+[data-theme='dark'] .scc-chat-panel__email-mode-btn--auto.scc-chat-panel__email-mode-btn--active {
+  color: #fff;
+}
+
+/* Checkbox hairline: the dark border token instead of the light grey */
+:root:not([data-theme='light']) :where(.scc-admin, html.scc-sales-embed-active, html.scc-sales-desktop-active) input[type='checkbox']:not(:checked):not(:indeterminate),
+[data-theme='dark'] :where(.scc-admin, html.scc-sales-embed-active, html.scc-sales-desktop-active) input[type='checkbox']:not(:checked):not(:indeterminate) {
+  border-color: var(--scc-border, #48494c);
+}
+
+:root:not([data-theme='light']) .scc-sales-nav,
+[data-theme='dark'] .scc-sales-nav {
+  border-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.88);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.25);
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__tab,
+[data-theme='dark'] .scc-sales-nav__tab {
+  color: #a3a3a6;
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__tab:hover:not(.scc-sales-nav__tab--active),
+[data-theme='dark'] .scc-sales-nav__tab:hover:not(.scc-sales-nav__tab--active) {
+  color: #e6e6e7;
+  background: var(--scc-hover-bg, #2b2c2f);
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__tab--active,
+[data-theme='dark'] .scc-sales-nav__tab--active {
+  color: #f7f7f7;
+  background: color-mix(in srgb, #5da399 22%, #161718);
+  box-shadow: none;
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__tab--active.scc-sales-nav__tab--assistant,
+[data-theme='dark'] .scc-sales-nav__tab--active.scc-sales-nav__tab--assistant {
+  background: color-mix(in srgb, #5da399 26%, #161718);
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__tab--has-badge:not(.scc-sales-nav__tab--active),
+[data-theme='dark'] .scc-sales-nav__tab--has-badge:not(.scc-sales-nav__tab--active),
+:root:not([data-theme='light']) .scc-sales-nav__menu--has-badge:not(.scc-sales-nav__menu--active),
+[data-theme='dark'] .scc-sales-nav__menu--has-badge:not(.scc-sales-nav__menu--active) {
+  color: #e6e6e7;
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__tab--has-pulse:not(.scc-sales-nav__tab--active) .scc-sales-nav__tab-label,
+[data-theme='dark'] .scc-sales-nav__tab--has-pulse:not(.scc-sales-nav__tab--active) .scc-sales-nav__tab-label {
+  color: #e6e6e7;
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__menu,
+[data-theme='dark'] .scc-sales-nav__menu {
+  color: #a3a3a6;
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__menu:hover,
+[data-theme='dark'] .scc-sales-nav__menu:hover {
+  color: #e6e6e7;
+  background-color: var(--scc-hover-bg, #2b2c2f);
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__menu--active,
+[data-theme='dark'] .scc-sales-nav__menu--active {
+  color: #f7f7f7;
+  background: color-mix(in srgb, #5da399 22%, #161718);
+  box-shadow: none;
+}
+
+:root:not([data-theme='light']) .scc-sales-workspace-sidebar,
+[data-theme='dark'] .scc-sales-workspace-sidebar {
+  border-right-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.94);
+}
+
+:root:not([data-theme='light']) .scc-sales-sidebar-toggle,
+[data-theme='dark'] .scc-sales-sidebar-toggle {
+  border-color: rgb(72 73 76 / 0.55);
+  color: #a3a3a6;
+}
+
+:root:not([data-theme='light']) .scc-sales-sidebar-toggle:hover,
+[data-theme='dark'] .scc-sales-sidebar-toggle:hover {
+  color: #f7f7f7;
+  border-color: var(--scc-border, #48494c);
+  background: var(--scc-hover-bg, #2b2c2f);
+}
+
+:root:not([data-theme='light']) .scc-sales-nav__tab-dot,
+[data-theme='dark'] .scc-sales-nav__tab-dot {
+  box-shadow: 0 0 0 1.5px rgb(22 23 24);
+}
+
+:root:not([data-theme='light']) .scc-sales-admin-toolbar,
+[data-theme='dark'] .scc-sales-admin-toolbar {
+  border-bottom-color: rgb(72 73 76 / 0.55);
+}
+
+/* .scc-sales-panel-action: solid teal / red / quiet grey work in both themes — no dark override. */
+
+:root:not([data-theme='light']) .scc-sales-settings > .scc-sales-panel__toolbar .scc-sales-panel-action,
+[data-theme='dark'] .scc-sales-settings > .scc-sales-panel__toolbar .scc-sales-panel-action {
+  background: #f29f05;
+  border-color: #f29f05;
+  box-shadow: none;
+  color: #fff;
+}
+
+:root:not([data-theme='light']) .scc-sales-settings > .scc-sales-panel__toolbar .scc-sales-panel-action:hover:not(:disabled),
+[data-theme='dark'] .scc-sales-settings > .scc-sales-panel__toolbar .scc-sales-panel-action:hover:not(:disabled) {
+  background: #d97706;
+  border-color: #d97706;
+  color: #fff;
+}
+
+:root:not([data-theme='light']) .scc-sales-settings > .scc-sales-panel__toolbar .scc-sales-panel-action--saved,
+:root:not([data-theme='light']) .scc-sales-settings > .scc-sales-panel__toolbar .scc-sales-panel-action--saved:hover:not(:disabled),
+[data-theme='dark'] .scc-sales-settings > .scc-sales-panel__toolbar .scc-sales-panel-action--saved,
+[data-theme='dark'] .scc-sales-settings > .scc-sales-panel__toolbar .scc-sales-panel-action--saved:hover:not(:disabled) {
+  background: #16a34a;
+  border-color: #15803d;
+  box-shadow: none;
+  color: #fff;
+}
+
+:root:not([data-theme='light']) .scc-sales-panel__select-wrap,
+[data-theme='dark'] .scc-sales-panel__select-wrap {
+  background: var(--scc-surface);
+  border-color: var(--scc-border);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.2);
+}
+
+:root:not([data-theme='light']) .scc-sales-panel__select,
+[data-theme='dark'] .scc-sales-panel__select {
+  background-color: transparent;
+  color: var(--scc-text);
+  border: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+:root:not([data-theme='light']) .scc-sales-panel__search-wrap,
+[data-theme='dark'] .scc-sales-panel__search-wrap {
+  background: var(--scc-surface);
+  border-color: var(--scc-border);
+}
+
+:root:not([data-theme='light']) .scc-sales-panel__search,
+[data-theme='dark'] .scc-sales-panel__search {
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-sales-panel__search::placeholder,
+[data-theme='dark'] .scc-sales-panel__search::placeholder {
+  color: var(--scc-muted);
+}
+
+:root:not([data-theme='light']) .scc-sales-admin-inner .scc-admin-activity__list,
+[data-theme='dark'] .scc-sales-admin-inner .scc-admin-activity__list,
+:root:not([data-theme='light']) .scc-sales-workspace-panel .scc-admin-activity__list,
+[data-theme='dark'] .scc-sales-workspace-panel .scc-admin-activity__list {
+  border-color: rgb(72 73 76 / 0.55);
+  background: var(--scc-surface, #161718);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.2);
+}
+
+:root:not([data-theme='light']) .scc-sales-admin-inner .scc-admin-activity__item:hover,
+[data-theme='dark'] .scc-sales-admin-inner .scc-admin-activity__item:hover,
+:root:not([data-theme='light']) .scc-sales-workspace-panel .scc-admin-activity__item:hover,
+[data-theme='dark'] .scc-sales-workspace-panel .scc-admin-activity__item:hover {
+  background: var(--scc-hover-bg, #2b2c2f);
+}
+
+:root:not([data-theme='light']) .scc-sales-admin-inner .scc-admin-activity__item--active,
+[data-theme='dark'] .scc-sales-admin-inner .scc-admin-activity__item--active,
+:root:not([data-theme='light']) .scc-sales-workspace-panel .scc-admin-activity__item--active,
+[data-theme='dark'] .scc-sales-workspace-panel .scc-admin-activity__item--active {
+  background: color-mix(in srgb, #5da399 18%, #161718);
+  box-shadow:
+    inset 0 0 0 1px rgb(93 163 153 / 0.35),
+    0 4px 14px rgb(93 163 153 / 0.08);
+}
+
+:root:not([data-theme='light']) .scc-sales-admin-inner .scc-admin-activity__item-preview,
+[data-theme='dark'] .scc-sales-admin-inner .scc-admin-activity__item-preview {
+  color: #f2f2f3;
+}
+
+:root:not([data-theme='light']) .scc-sales-admin-inner .scc-admin-activity__item-meta,
+[data-theme='dark'] .scc-sales-admin-inner .scc-admin-activity__item-meta {
+  color: #a3a3a6;
+}
+
+:root:not([data-theme='light']) .scc-prospects__icon-filter,
+[data-theme='dark'] .scc-prospects__icon-filter {
+  border-color: rgb(72 73 76 / 0.65);
+  background: rgb(22 23 24 / 0.72);
+  color: #a3a3a6;
+}
+
+:root:not([data-theme='light']) .scc-prospects__icon-filter:hover,
+[data-theme='dark'] .scc-prospects__icon-filter:hover {
+  border-color: rgb(122 123 126 / 0.8);
+  color: #cfcfd1;
+}
+
+:root:not([data-theme='light']) .scc-prospects__icon-filter--contact.scc-prospects__icon-filter--active,
+[data-theme='dark'] .scc-prospects__icon-filter--contact.scc-prospects__icon-filter--active {
+  border-color: rgb(163 163 166 / 0.7);
+  background: rgb(163 163 166 / 0.16);
+  color: #e6e6e7;
+}
+
+:root:not([data-theme='light']) .scc-prospects__filter-divider,
+[data-theme='dark'] .scc-prospects__filter-divider {
+  background: rgb(72 73 76 / 0.7);
+}
+
+:root:not([data-theme='light']) .scc-prospects__list-delete,
+[data-theme='dark'] .scc-prospects__list-delete {
+  border-color: rgb(72 73 76 / 0.65);
+  background: rgb(22 23 24 / 0.72);
+  color: #a3a3a6;
+}
+:root:not([data-theme='light']) .scc-prospects__list-delete:hover,
+[data-theme='dark'] .scc-prospects__list-delete:hover {
+  border-color: rgb(248 113 113 / 0.7);
+  background: rgb(248 113 113 / 0.12);
+  color: #fca5a5;
+}
+
+:root:not([data-theme='light']) .scc-prospects__actions-btn,
+[data-theme='dark'] .scc-prospects__actions-btn {
+  border-color: rgb(72 73 76 / 0.65);
+  background: rgb(22 23 24 / 0.72);
+  color: #e6e6e7;
+}
+:root:not([data-theme='light']) .scc-prospects__actions-btn:hover,
+[data-theme='dark'] .scc-prospects__actions-btn:hover {
+  border-color: rgb(122 123 126 / 0.85);
+  background: var(--scc-hover-bg, #2b2c2f);
+}
+/* .scc-prospects__actions-btn--tabs is solid teal in both themes — no dark override. */
+
+:root:not([data-theme='light']) .scc-prospects__header-add-menu,
+[data-theme='dark'] .scc-prospects__header-add-menu {
+  border-color: rgb(72 73 76 / 0.65);
+  background: rgb(22 23 24 / 0.98);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.4);
+}
+:root:not([data-theme='light']) .scc-prospects__header-add-menu button,
+[data-theme='dark'] .scc-prospects__header-add-menu button {
+  color: #e6e6e7;
+}
+:root:not([data-theme='light']) .scc-prospects__header-add-menu button:hover,
+[data-theme='dark'] .scc-prospects__header-add-menu button:hover {
+  background: var(--scc-hover-bg, #2b2c2f);
+}
+:root:not([data-theme='light']) .scc-prospects__actions-sublist,
+[data-theme='dark'] .scc-prospects__actions-sublist {
+  border-left-color: rgb(72 73 76 / 0.7);
+}
+
+:root:not([data-theme='light']) .scc-prospects__follow-up-clock,
+[data-theme='dark'] .scc-prospects__follow-up-clock {
+  color: #fbbf24;
+}
+
+:root:not([data-theme='light']) .scc-prospects__contact-icon,
+[data-theme='dark'] .scc-prospects__contact-icon {
+  color: #a3a3a6;
+}
+
+:root:not([data-theme='light']) .scc-prospects__contact-icon:hover,
+:root:not([data-theme='light']) .scc-prospects__contact-icon--active,
+[data-theme='dark'] .scc-prospects__contact-icon:hover,
+[data-theme='dark'] .scc-prospects__contact-icon--active {
+  color: #5eead4;
+  background: var(--scc-tint-teal, #233532);
+}
+
+:root:not([data-theme='light']) .scc-prospects__contact-phone-menu,
+[data-theme='dark'] .scc-prospects__contact-phone-menu {
+  border-color: rgb(72 73 76 / 0.65);
+  background: rgb(22 23 24 / 0.98);
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.35);
+}
+
+:root:not([data-theme='light']) .scc-prospects__contact-phone-action,
+[data-theme='dark'] .scc-prospects__contact-phone-action {
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-prospects__response-icon--rejected,
+[data-theme='dark'] .scc-prospects__response-icon--rejected {
+  color: #f87171;
+}
+
+:root:not([data-theme='light']) .scc-prospects__response-icon--confirmed,
+[data-theme='dark'] .scc-prospects__response-icon--confirmed {
+  color: #5eead4;
+}
+
+:root:not([data-theme='light']) .scc-prospects__status-cog,
+[data-theme='dark'] .scc-prospects__status-cog {
+  color: #7a7b7e;
+}
+
+:root:not([data-theme='light']) .scc-prospects__status-cog:hover:not(:disabled),
+[data-theme='dark'] .scc-prospects__status-cog:hover:not(:disabled) {
+  background: var(--scc-hover-bg, #2b2c2f);
+  color: #cfcfd1;
+}
+
+:root:not([data-theme='light']) .scc-prospects__status-dropdown,
+[data-theme='dark'] .scc-prospects__status-dropdown {
+  border-color: rgb(72 73 76 / 0.65);
+  background: rgb(22 23 24 / 0.98);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.28);
+}
+
+:root:not([data-theme='light']) .scc-prospects__status-option,
+[data-theme='dark'] .scc-prospects__status-option {
+  color: #e6e6e7;
+}
+
+:root:not([data-theme='light']) .scc-prospects__status-option:hover,
+[data-theme='dark'] .scc-prospects__status-option:hover {
+  background: var(--scc-hover-bg, #2b2c2f);
+}
+
+:root:not([data-theme='light']) .scc-prospects__status-option--active,
+[data-theme='dark'] .scc-prospects__status-option--active {
+  background: color-mix(in srgb, #5da399 22%, #161718);
+  color: #99f6e4;
+}
+
+:root:not([data-theme='light']) .scc-sales-admin-inner .scc-admin-activity__detail,
+[data-theme='dark'] .scc-sales-admin-inner .scc-admin-activity__detail,
+:root:not([data-theme='light']) .scc-sales-workspace-panel .scc-admin-activity__detail,
+[data-theme='dark'] .scc-sales-workspace-panel .scc-admin-activity__detail {
+  border-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.92);
+  box-shadow: 0 4px 18px rgb(0 0 0 / 0.18);
+}
+
+:root:not([data-theme='light']) .scc-sales-admin-inner .scc-admin__notice,
+[data-theme='dark'] .scc-sales-admin-inner .scc-admin__notice {
+  border-color: color-mix(in srgb, #5da399 12%, #161718);
+  background: color-mix(in srgb, #5da399 12%, #161718);
+  color: #e6e6e7;
+}
+
+:root:not([data-theme='light']) .scc-prospects__detail-tabs-row,
+[data-theme='dark'] .scc-prospects__detail-tabs-row {
+  border-bottom-color: rgb(72 73 76 / 0.55);
+  background: var(--scc-surface);
+}
+
+:root:not([data-theme='light']) .scc-sales-workspace-panel,
+[data-theme='dark'] .scc-sales-workspace-panel {
+  background: var(--scc-surface);
+  border-color: rgb(72 73 76 / 0.55);
+  box-shadow: 0 20px 50px rgb(0 0 0 / 0.28);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__card,
+[data-theme='dark'] .scc-sales-stats__card {
+  background: var(--scc-card-bg, #1b1c1e);
+  box-shadow: 0 2px 0 rgb(0 0 0 / 0.25);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__card--teal,
+[data-theme='dark'] .scc-sales-stats__card--teal {
+  border-color: color-mix(in srgb, #5da399 35%, rgb(72 73 76));
+  background: color-mix(in srgb, #5da399 12%, #161718);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__card--orange,
+[data-theme='dark'] .scc-sales-stats__card--orange {
+  border-color: color-mix(in srgb, #f29f05 35%, rgb(72 73 76));
+  background: color-mix(in srgb, #f29f05 10%, #161718);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__card--success,
+[data-theme='dark'] .scc-sales-stats__card--success {
+  border-color: color-mix(in srgb, #16a34a 35%, rgb(72 73 76));
+  background: color-mix(in srgb, #16a34a 10%, #161718);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__card--email,
+[data-theme='dark'] .scc-sales-stats__card--email {
+  background: color-mix(in srgb, #14b8a6 12%, #161718);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__card--linkedin,
+[data-theme='dark'] .scc-sales-stats__card--linkedin {
+  background: color-mix(in srgb, #0a8fd6 14%, #161718);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__card--whatsapp,
+[data-theme='dark'] .scc-sales-stats__card--whatsapp {
+  background: color-mix(in srgb, #16a34a 12%, #161718);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__card--danger,
+[data-theme='dark'] .scc-sales-stats__card--danger {
+  border-color: color-mix(in srgb, #dc2626 40%, rgb(72 73 76));
+  background: color-mix(in srgb, #dc2626 12%, #161718);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__card-value,
+:root:not([data-theme='light']) .scc-sales-stats__card-label,
+[data-theme='dark'] .scc-sales-stats__card-value,
+[data-theme='dark'] .scc-sales-stats__card-label,
+:root:not([data-theme='light']) .scc-sales-stats__bar-label,
+[data-theme='dark'] .scc-sales-stats__bar-label,
+:root:not([data-theme='light']) .scc-sales-stats__metric-label,
+[data-theme='dark'] .scc-sales-stats__metric-label {
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__section,
+[data-theme='dark'] .scc-sales-stats__section {
+  background: var(--scc-card-bg, #1b1c1e);
+}
+
+:root:not([data-theme='light']) .scc-sales-stats__bar-track,
+[data-theme='dark'] .scc-sales-stats__bar-track {
+  background: rgb(52 53 56 / 0.9);
+}
+
+:root:not([data-theme='light']) .scc-deliverability__range,
+[data-theme='dark'] .scc-deliverability__range {
+  border-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.85);
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-deliverability__section,
+[data-theme='dark'] .scc-deliverability__section {
+  background: var(--scc-card-bg, #1b1c1e);
+}
+
+:root:not([data-theme='light']) .scc-deliverability__title,
+:root:not([data-theme='light']) .scc-deliverability__issue-main,
+[data-theme='dark'] .scc-deliverability__title,
+[data-theme='dark'] .scc-deliverability__issue-main {
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-deliverability__meta,
+:root:not([data-theme='light']) .scc-deliverability__legend,
+:root:not([data-theme='light']) .scc-deliverability__col-label,
+:root:not([data-theme='light']) .scc-deliverability__issue-top,
+:root:not([data-theme='light']) .scc-deliverability__issue-reason,
+[data-theme='dark'] .scc-deliverability__meta,
+[data-theme='dark'] .scc-deliverability__legend,
+[data-theme='dark'] .scc-deliverability__col-label,
+[data-theme='dark'] .scc-deliverability__issue-top,
+[data-theme='dark'] .scc-deliverability__issue-reason {
+  color: var(--scc-muted);
+}
+
+:root:not([data-theme='light']) .scc-deliverability__issue,
+[data-theme='dark'] .scc-deliverability__issue {
+  background: var(--scc-surface, #222325);
+}
+
+:root:not([data-theme='light']) .scc-integrations__status--connected,
+:root:not([data-theme='light']) .scc-integrations__status--configured,
+[data-theme='dark'] .scc-integrations__status--connected,
+[data-theme='dark'] .scc-integrations__status--configured {
+  color: #5da399;
+}
+
+:root:not([data-theme='light']) .scc-integrations__status--not-configured,
+:root:not([data-theme='light']) .scc-integrations__status--coming-soon,
+[data-theme='dark'] .scc-integrations__status--not-configured,
+[data-theme='dark'] .scc-integrations__status--coming-soon {
+  color: #a3a3a6;
+}
+
+:root:not([data-theme='light']) .scc-integrations__status--requires-desktop,
+:root:not([data-theme='light']) .scc-integrations__status--session-required,
+:root:not([data-theme='light']) .scc-integrations__status--paused,
+:root:not([data-theme='light']) .scc-integrations__status--extension-required,
+[data-theme='dark'] .scc-integrations__status--requires-desktop,
+[data-theme='dark'] .scc-integrations__status--session-required,
+[data-theme='dark'] .scc-integrations__status--paused,
+[data-theme='dark'] .scc-integrations__status--extension-required {
+  color: #fbbf24;
+}
+
+:root:not([data-theme='light']) .scc-sales-settings__form,
+[data-theme='dark'] .scc-sales-settings__form {
+  border-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.75);
+}
+
+:root:not([data-theme='light']) .scc-sales-settings__free-model-note,
+[data-theme='dark'] .scc-sales-settings__free-model-note {
+  border-color: color-mix(in srgb, #f29f05 14%, #161718);
+  background: color-mix(in srgb, #f29f05 14%, #161718);
+  color: var(--scc-text);
+}
+
+/* Dashboard dark theme */
+
+:root:not([data-theme='light']) .scc-dashboard__stat,
+[data-theme='dark'] .scc-dashboard__stat {
+  --scc-stat-ring-track: rgb(72 73 76 / 0.55);
+}
+
+:root:not([data-theme='light']) .scc-dashboard__stat-core,
+[data-theme='dark'] .scc-dashboard__stat-core {
+  border-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.92);
+}
+
+:root:not([data-theme='light']) .scc-dashboard__stat-value,
+:root:not([data-theme='light']) .scc-dashboard__stat-label,
+:root:not([data-theme='light']) .scc-dashboard__funnel-label,
+:root:not([data-theme='light']) .scc-dashboard__funnel-count,
+:root:not([data-theme='light']) .scc-dashboard__feed-company,
+:root:not([data-theme='light']) .scc-dashboard__action-label,
+[data-theme='dark'] .scc-dashboard__stat-value,
+[data-theme='dark'] .scc-dashboard__stat-label,
+[data-theme='dark'] .scc-dashboard__funnel-label,
+[data-theme='dark'] .scc-dashboard__funnel-count,
+[data-theme='dark'] .scc-dashboard__feed-company,
+[data-theme='dark'] .scc-dashboard__action-label {
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-dashboard__funnel-bar-wrap,
+[data-theme='dark'] .scc-dashboard__funnel-bar-wrap {
+  background: rgb(52 53 56 / 0.9);
+}
+
+:root:not([data-theme='light']) .scc-dashboard__feed-item,
+[data-theme='dark'] .scc-dashboard__feed-item {
+  border-color: rgb(72 73 76 / 0.3);
+}
+
+:root:not([data-theme='light']) .scc-dashboard__feed-item--clickable:hover,
+[data-theme='dark'] .scc-dashboard__feed-item--clickable:hover {
+  background: var(--scc-hover-bg, #2b2c2f);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__nav-btn,
+[data-theme='dark'] .scc-scheduler__nav-btn {
+  color: #a3a3a6;
+}
+
+:root:not([data-theme='light']) .scc-scheduler__nav-btn:hover,
+[data-theme='dark'] .scc-scheduler__nav-btn:hover {
+  background: transparent;
+  color: #e6e6e7;
+}
+
+:root:not([data-theme='light']) .scc-scheduler__nav-btn--active,
+[data-theme='dark'] .scc-scheduler__nav-btn--active {
+  background: transparent;
+  box-shadow: none;
+  color: #5da399;
+  border-bottom-color: #5da399;
+}
+
+:root:not([data-theme='light']) .scc-scheduler__card,
+[data-theme='dark'] .scc-scheduler__card {
+  background: var(--scc-card-bg, #1b1c1e);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__card-value,
+:root:not([data-theme='light']) .scc-scheduler__card-label,
+:root:not([data-theme='light']) .scc-scheduler__status-label,
+[data-theme='dark'] .scc-scheduler__card-value,
+[data-theme='dark'] .scc-scheduler__card-label,
+[data-theme='dark'] .scc-scheduler__status-label {
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__card-label,
+[data-theme='dark'] .scc-scheduler__card-label {
+  color: var(--scc-muted);
+}
+
+/* Scheduler inputs: the dark input look. Mode tabs and template cards follow the shared
+   tokens (quiet grey / solid teal / grey card) — no dark override needed. */
+:root:not([data-theme='light']) .scc-scheduler__setting-input,
+:root:not([data-theme='light']) .scc-scheduler__setting-select,
+:root:not([data-theme='light']) .scc-scheduler__datetime-input,
+[data-theme='dark'] .scc-scheduler__setting-input,
+[data-theme='dark'] .scc-scheduler__setting-select,
+[data-theme='dark'] .scc-scheduler__datetime-input {
+  border-color: var(--scc-border, #48494c);
+  background: var(--scc-surface, #222325);
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__template-card-label,
+:root:not([data-theme='light']) .scc-scheduler__template-title,
+:root:not([data-theme='light']) .scc-scheduler__queue-company,
+:root:not([data-theme='light']) .scc-scheduler__queue-title,
+:root:not([data-theme='light']) .scc-scheduler__settings-title,
+:root:not([data-theme='light']) .scc-scheduler__prospect-name,
+:root:not([data-theme='light']) .scc-scheduler__run-title,
+:root:not([data-theme='light']) .scc-journey-card__name,
+:root:not([data-theme='light']) .scc-journey-card__run-name,
+[data-theme='dark'] .scc-scheduler__template-card-label,
+[data-theme='dark'] .scc-scheduler__template-title,
+[data-theme='dark'] .scc-scheduler__queue-company,
+[data-theme='dark'] .scc-scheduler__queue-title,
+[data-theme='dark'] .scc-scheduler__settings-title,
+[data-theme='dark'] .scc-scheduler__prospect-name,
+[data-theme='dark'] .scc-scheduler__run-title,
+[data-theme='dark'] .scc-journey-card__name,
+[data-theme='dark'] .scc-journey-card__run-name {
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__queue-item,
+[data-theme='dark'] .scc-scheduler__queue-item {
+  border-bottom-color: rgb(72 73 76 / 0.35);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__controls,
+:root:not([data-theme='light']) .scc-scheduler__template-active,
+[data-theme='dark'] .scc-scheduler__controls,
+[data-theme='dark'] .scc-scheduler__template-active {
+  background: var(--scc-card-bg, #1b1c1e);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__setting-hint,
+:root:not([data-theme='light']) .scc-scheduler__panel-intro,
+:root:not([data-theme='light']) .scc-scheduler__template-desc,
+:root:not([data-theme='light']) .scc-scheduler__template-card-desc,
+[data-theme='dark'] .scc-scheduler__setting-hint,
+[data-theme='dark'] .scc-scheduler__panel-intro,
+[data-theme='dark'] .scc-scheduler__template-desc,
+[data-theme='dark'] .scc-scheduler__template-card-desc {
+  color: var(--scc-muted);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__cron-section,
+[data-theme='dark'] .scc-scheduler__cron-section {
+  border-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.65);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__cron-section-subtitle,
+:root:not([data-theme='light']) .scc-scheduler__cron-field-label,
+[data-theme='dark'] .scc-scheduler__cron-section-subtitle,
+[data-theme='dark'] .scc-scheduler__cron-field-label {
+  color: #a3a3a6;
+}
+
+:root:not([data-theme='light']) .scc-scheduler__cron-section-title,
+[data-theme='dark'] .scc-scheduler__cron-section-title {
+  color: #f59e0b;
+}
+
+:root:not([data-theme='light']) .scc-scheduler__cron-value,
+[data-theme='dark'] .scc-scheduler__cron-value {
+  border-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.85);
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__cron-copy,
+:root:not([data-theme='light']) .scc-scheduler__cron-copy-icon,
+[data-theme='dark'] .scc-scheduler__cron-copy,
+[data-theme='dark'] .scc-scheduler__cron-copy-icon {
+  border-color: rgb(72 73 76 / 0.55);
+  background: var(--scc-surface);
+  color: var(--scc-muted);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__cron-copy-icon:hover,
+[data-theme='dark'] .scc-scheduler__cron-copy-icon:hover {
+  border-color: rgb(245 158 11 / 0.45);
+  color: #fbbf24;
+}
+
+:root:not([data-theme='light']) .scc-scheduler__cron-steps,
+[data-theme='dark'] .scc-scheduler__cron-steps {
+  color: var(--scc-muted);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__schedule-btn--secondary,
+[data-theme='dark'] .scc-scheduler__schedule-btn--secondary {
+  background: var(--scc-quiet-bg, #303134);
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__schedule-btn--secondary:hover:not(:disabled),
+[data-theme='dark'] .scc-scheduler__schedule-btn--secondary:hover:not(:disabled) {
+  background: var(--scc-quiet-bg-hover, #3a3b3e);
+  color: #f7f7f7;
+}
+
+:root:not([data-theme='light']) .scc-seq-ai,
+[data-theme='dark'] .scc-seq-ai {
+  background: var(--scc-card-bg, #1b1c1e);
+}
+
+:root:not([data-theme='light']) .scc-seq-ai__input,
+:root:not([data-theme='light']) .scc-seq-ai__response,
+[data-theme='dark'] .scc-seq-ai__input,
+[data-theme='dark'] .scc-seq-ai__response {
+  border-color: var(--scc-border, #48494c);
+  background: var(--scc-surface, #222325);
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__empty,
+:root:not([data-theme='light']) .scc-tasks__empty,
+[data-theme='dark'] .scc-scheduler__empty,
+[data-theme='dark'] .scc-tasks__empty {
+  border-color: rgb(72 73 76 / 0.55);
+  background: color-mix(in srgb, #5da399 6%, #161718);
+}
+
+/* Run cards, journey cards, Digest rows: grey cards via --scc-card-bg (dark value above). */
+
+:root:not([data-theme='light']) .scc-journey-card__runs,
+[data-theme='dark'] .scc-journey-card__runs {
+  border-top-color: rgb(72 73 76 / 0.55);
+}
+
+:root:not([data-theme='light']) .scc-tasks__chip--primary,
+[data-theme='dark'] .scc-tasks__chip--primary {
+  border-color: rgb(93 163 153 / 0.35);
+  background: color-mix(in srgb, #5da399 14%, #161718);
+  color: #f7f7f7;
+}
+
+:root:not([data-theme='light']) .scc-scheduler__template-active.scc-scheduler__template-active--plain,
+[data-theme='dark'] .scc-scheduler__template-active.scc-scheduler__template-active--plain {
+  background: none;
+}
+
+:root:not([data-theme='light']) .scc-play-head__select,
+:root:not([data-theme='light']) .scc-play-head__time,
+[data-theme='dark'] .scc-play-head__select,
+[data-theme='dark'] .scc-play-head__time {
+  background: rgb(22 23 24 / 0.85);
+}
+
+:root:not([data-theme='light']) .scc-play-head__select,
+:root:not([data-theme='light']) .scc-play-head__time,
+[data-theme='dark'] .scc-play-head__select,
+[data-theme='dark'] .scc-play-head__time {
+  border-color: rgb(72 73 76 / 0.55);
+}
+
+:root:not([data-theme='light']) .scc-run-form__group,
+:root:not([data-theme='light']) .scc-quick-setup,
+[data-theme='dark'] .scc-quick-setup,
+[data-theme='dark'] .scc-run-form__group {
+  border-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.65);
+}
+
+:root:not([data-theme='light']) .scc-run-form__input,
+:root:not([data-theme='light']) .scc-run-form__mode-tab,
+[data-theme='dark'] .scc-run-form__input,
+[data-theme='dark'] .scc-run-form__mode-tab {
+  border-color: rgb(72 73 76 / 0.55);
+  background: rgb(22 23 24 / 0.85);
+  color: #f7f7f7;
+}
+
+:root:not([data-theme='light']) .scc-run-form__mode-tab--active,
+[data-theme='dark'] .scc-run-form__mode-tab--active {
+  border-color: rgb(93 163 153 / 0.45);
+  background: color-mix(in srgb, #5da399 18%, #161718);
+}
+
+:root:not([data-theme='light']) .scc-prospects__contact-icon--li-connected,
+[data-theme='dark'] .scc-prospects__contact-icon--li-connected {
+  color: #4ade80;
+  border-color: rgb(74 222 128 / 0.45);
+}
+:root:not([data-theme='light']) .scc-prospects__contact-icon--li-pending,
+[data-theme='dark'] .scc-prospects__contact-icon--li-pending {
+  color: #fbbf24;
+  border-color: rgb(251 191 36 / 0.45);
+}
+:root:not([data-theme='light']) .scc-prospects__social-link--li-connected,
+[data-theme='dark'] .scc-prospects__social-link--li-connected {
+  color: #4ade80;
+}
+:root:not([data-theme='light']) .scc-prospects__social-link--li-pending,
+[data-theme='dark'] .scc-prospects__social-link--li-pending {
+  color: #fbbf24;
+}
+
+/* Journeys — Overview active row + In progress campaign shell */
+:root:not([data-theme='light']) .scc-scheduler__overview-active-btn,
+[data-theme='dark'] .scc-scheduler__overview-active-btn {
+  border-color: rgb(72 73 76 / 0.55);
+  background: var(--scc-card);
+  color: var(--scc-text);
+}
+
+:root:not([data-theme='light']) .scc-scheduler__overview-active-btn:hover,
+[data-theme='dark'] .scc-scheduler__overview-active-btn:hover {
+  border-color: rgb(93 163 153 / 0.45);
+  background: color-mix(in srgb, #5da399 10%, var(--scc-card));
+}
+
+:root:not([data-theme='light']) .scc-in-progress__campaign,
+:root:not([data-theme='light']) .scc-play-progress__play-block,
+[data-theme='dark'] .scc-in-progress__campaign,
+[data-theme='dark'] .scc-play-progress__play-block {
+  border-color: rgb(72 73 76 / 0.55);
+  background: var(--scc-card);
+}
+
+:root:not([data-theme='light']) .scc-in-progress__step--current:not(.scc-in-progress__step--channel) .scc-flow__card-badge,
+[data-theme='dark'] .scc-in-progress__step--current:not(.scc-in-progress__step--channel) .scc-flow__card-badge {
+  color: #fca5a5;
+}
+
+:root:not([data-theme='light']) .scc-in-progress__step--done:not(.scc-in-progress__step--channel) .scc-flow__card-badge,
+[data-theme='dark'] .scc-in-progress__step--done:not(.scc-in-progress__step--channel) .scc-flow__card-badge {
+  color: #5da399;
+}
+
+:root:not([data-theme='light']) .scc-in-progress__now-badge,
+[data-theme='dark'] .scc-in-progress__now-badge {
+  color: #fca5a5;
+}
+
+/* Phone / narrow-panel floating buttons: the surface fill vanished into the list behind
+   them — lift them with a lighter fill, white icon and a deeper shadow. Open/active keep
+   their solid teal. */
+:root:not([data-theme='light']) .scc-prospects__phone-fab:not(.scc-prospects__phone-fab--open):not(.scc-prospects__phone-fab--active),
+[data-theme='dark'] .scc-prospects__phone-fab:not(.scc-prospects__phone-fab--open):not(.scc-prospects__phone-fab--active) {
+  border-color: transparent;
+  background: #3a3b3e;
+  color: #f2f2f3;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.55), 0 1px 3px rgb(0 0 0 / 0.4);
+}
+
+:root:not([data-theme='light']) .scc-dashboard__section-link:hover,
+:root:not([data-theme='light']) .scc-dashboard__section-link:focus-visible,
+[data-theme='dark'] .scc-dashboard__section-link:hover,
+[data-theme='dark'] .scc-dashboard__section-link:focus-visible {
+  color: #99f6e4;
+}

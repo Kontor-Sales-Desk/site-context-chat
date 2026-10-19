@@ -1,0 +1,306 @@
+.scc-chat-fab-anchor {
+  position: fixed;
+  z-index: 9998;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  --scc-orbit-size: 8.9125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.scc-chat-fab-anchor .scc-chat-proactive-nudge,
+.scc-chat-fab-anchor .scc-chat-fab-wrap {
+  pointer-events: auto;
+}
+
+.scc-chat-proactive-nudge {
+  position: relative;
+  width: max-content;
+  max-width: min(16rem, calc(100vw - 2.5rem));
+  padding: 0.65rem 2rem 0.65rem 0.85rem;
+  border-radius: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--scc-fab-accent, #5da399) 45%, transparent);
+  background: color-mix(in srgb, #0f172a 92%, var(--scc-fab-accent, #5da399) 8%);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+  animation: scc-chat-nudge-in 0.28s ease-out;
+  transform-origin: bottom right;
+}
+
+.scc-chat-proactive-nudge__text {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.scc-chat-proactive-nudge__dismiss {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 0.45rem;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.scc-chat-proactive-nudge__dismiss:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.scc-chat-fab--nudge-active .scc-chat-fab__ring {
+  animation: scc-chat-fab-nudge-pulse 2.2s ease-in-out infinite;
+}
+
+.scc-chat-fab-anchor:has(.scc-chat-proactive-nudge) .scc-chat-fab__orbit {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes scc-chat-nudge-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scc-chat-fab-nudge-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.2;
+  }
+}
+
+[data-theme='light'] .scc-chat-proactive-nudge {
+  background: #ffffff;
+  border-color: color-mix(in srgb, var(--scc-fab-accent, #5da399) 40%, #cbd5e1);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme='light'] .scc-chat-proactive-nudge__text {
+  color: #334155;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scc-chat-proactive-nudge {
+    animation: none;
+  }
+
+  .scc-chat-fab--nudge-active .scc-chat-fab__ring {
+    animation: none;
+    opacity: 0.35;
+  }
+}
+.scc-chat-panel__ai-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(93, 163, 153, 0.35);
+  background: rgba(93, 163, 153, 0.12);
+}
+
+[data-theme='light'] .scc-chat-panel__ai-notice {
+  border-color: rgba(15, 118, 110, 0.25);
+  background: rgba(93, 163, 153, 0.1);
+}
+
+.scc-chat-panel__ai-notice-text {
+  flex: 1;
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+[data-theme='light'] .scc-chat-panel__ai-notice-text {
+  color: rgba(51, 65, 85, 0.95);
+}
+
+.scc-chat-panel__ai-notice-link {
+  font-weight: 600;
+  color: var(--scc-fab-accent, #5da399);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.scc-chat-panel__ai-notice-link:hover {
+  opacity: 0.85;
+}
+
+.scc-chat-panel__ai-notice-dismiss {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: rgba(148, 163, 184, 0.95);
+  cursor: pointer;
+}
+
+.scc-chat-panel__ai-notice-dismiss:hover {
+  background: rgba(148, 163, 184, 0.15);
+  color: rgba(226, 232, 240, 0.95);
+}
+
+[data-theme='light'] .scc-chat-panel__ai-notice-dismiss {
+  color: rgba(100, 116, 139, 0.95);
+}
+
+[data-theme='light'] .scc-chat-panel__ai-notice-dismiss:hover {
+  background: rgba(100, 116, 139, 0.12);
+  color: rgba(51, 65, 85, 0.95);
+}
+/* Cross-admin navigation (shop / chat / sales) */
+.scc-admin-app-nav {
+  margin-bottom: 1.25rem;
+}
+
+.scc-admin-app-nav__desktop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.scc-admin-app-nav__tab {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  text-decoration: none;
+  background: #fff;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.scc-admin-app-nav__tab:hover {
+  border-color: #5da399;
+  color: #0f766e;
+}
+
+.scc-admin-app-nav__tab--active {
+  border-color: #5da399;
+  background: rgba(93, 163, 153, 0.12);
+  color: #0f766e;
+}
+
+.scc-admin-app-nav__preview {
+  margin-left: auto;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #5da399;
+  text-decoration: none;
+}
+
+.scc-admin-app-nav__preview:hover {
+  text-decoration: underline;
+}
+
+.scc-admin-app-nav__mobile-wrap {
+  display: none;
+  position: relative;
+  width: 100%;
+  max-width: 16rem;
+}
+
+.scc-admin-app-nav__menu {
+  width: 100%;
+  appearance: none;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  padding: 0.55rem 2rem 0.55rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.scc-admin-app-nav__mobile-label {
+  display: none;
+}
+
+.scc-shop-admin__lines {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.875rem;
+  color: #475569;
+  list-style: disc;
+}
+
+.scc-shop-admin__fulfillment {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.scc-shop-admin__fulfillment p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+@media (max-width: 767px) {
+  .scc-admin-app-nav__desktop {
+    display: none;
+  }
+
+  .scc-admin-app-nav__mobile-wrap {
+    display: block;
+  }
+}
+
+[data-theme='dark'] .scc-admin-app-nav__tab {
+  background: rgba(15, 23, 42, 0.72);
+  border-color: rgba(148, 163, 184, 0.35);
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .scc-admin-app-nav__tab:hover {
+  border-color: #5da399;
+  color: #99f6e4;
+}
+
+[data-theme='dark'] .scc-admin-app-nav__tab--active {
+  background: rgba(93, 163, 153, 0.18);
+  border-color: #5da399;
+  color: #99f6e4;
+}
+
+[data-theme='dark'] .scc-admin-app-nav__menu {
+  background: rgba(15, 23, 42, 0.92);
+  border-color: rgba(148, 163, 184, 0.35);
+  color: #e2e8f0;
+}
